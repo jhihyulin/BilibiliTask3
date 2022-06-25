@@ -58,7 +58,7 @@ public class ThrowCoinTask implements Task {
             List<String> videoAid = new ArrayList<>();
             /* 获取自定义配置中 up 主投稿的30条最新视频 */
             if(config.getUpList() == null && num > 0){
-                log.info("【优優先投幣up】: 未設定優先投幣up主");
+                log.info("【優先投幣up】: 未設定優先投幣up主");
             } else{
                 if(num - videoAid.size() > 0){
                     for(String up : config.getUpList()){
