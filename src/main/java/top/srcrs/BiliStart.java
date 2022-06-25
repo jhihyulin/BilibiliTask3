@@ -48,7 +48,7 @@ public class BiliStart {
                 log.info("【升級預計】: 目前等級為: Lv{} ,已經是最高等級", maxLevel);
                 log.info("【溫馨提醒】: 可在配置文件中關閉每日投幣操作");
             } else{
-                log.info("【升級預計】: 目前導極為: Lv{} ,預計升級到下一級還要: {} 天",
+                log.info("【升級預計】: 目前等級為: Lv{} ,預計升級到下一級還要: {} 天",
                         USER_DATA.getCurrentLevel(), getNextLevel());
             }
             log.info("本次任務運行完畢。");
