@@ -24,7 +24,7 @@ public class GiveGiftTask implements Task {
         try{
             /* 从配置类中读取是否需要执行赠送礼物 */
             if(!config.isGift()){
-                log.info("【送即将过期礼物】: 自定义配置不送出即将过期礼物✔");
+                log.info("【送即將過期禮物】: 自定義設定不送出即將過期禮物✔");
                 return;
             }
             /* 直播间 id */
@@ -61,19 +61,19 @@ public class GiveGiftTask implements Task {
                         String giftName = jsonObject3.getJSONObject("data").getString("gift_name");
                         /* 礼物的数量 */
                         String giftNum = jsonObject3.getJSONObject("data").getString("gift_num");
-                        log.info("【送即将过期礼物】: 给直播间 - {} - {} - 数量: {}✔",roomId,giftName,giftNum);
+                        log.info("【送即將過期禮物】: 給直播間 - {} - {} - 數量: {}✔",roomId,giftName,giftNum);
                         flag = false;
                     }
                     else{
-                        log.warn("【送即将过期礼物】: 失败, 原因 : {}❌", jsonObject3);
+                        log.warn("【送即將過期禮物】: 失敗, 原因 : {}❌", jsonObject3);
                     }
                 }
             }
             if(flag){
-                log.info("【送即将过期礼物】: " + "当前无即将过期礼物❌");
+                log.info("【送即將過期禮物】: " + "當前無即將過期禮物❌");
             }
         } catch (Exception e){
-            log.error("💔赠送礼物异常 : ", e);
+            log.error("💔贈送禮物異常 : ", e);
         }
     }
 
@@ -169,20 +169,20 @@ public class GiveGiftTask implements Task {
             roomId = getRoomInfoOld(uid);
             String status = "0";
             if(status.equals(roomId)){
-                log.info("【获取直播间】: 自定义up {} 无直播间", uid);
+                log.info("【獲取直播間】: 自定義up {} 無直播間", uid);
                 /* 随机获取一个直播间 */
                 roomId = xliveGetRecommend();
                 uid = xliveGetRoomUid(roomId);
-                log.info("【获取直播间】: 随机直播间");
+                log.info("【獲取直播間】: 隨機直播間");
             } else{
-                log.info("【获取直播间】: 自定义up {} 的直播间", uid);
+                log.info("【獲取直播間】: 自定義up {} 的直播間", uid);
             }
 
         } else{
             /* 随机获取一个直播间 */
             roomId = xliveGetRecommend();
             uid = xliveGetRoomUid(roomId);
-            log.info("【获取直播间】: " + "随机直播间");
+            log.info("【獲取直播間】: " + "隨機直播間");
         }
         JSONObject json = new JSONObject();
         json.put("uid",uid);

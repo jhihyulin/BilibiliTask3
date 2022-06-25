@@ -112,7 +112,7 @@ public class Request {
             String respContent = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             return JSON.parseObject(respContent);
         } catch (Exception e) {
-            log.info("💔{}请求错误 : ", request.getMethod(), e);
+            log.info("💔{}請求錯誤 : ", request.getMethod(), e);
             return new JSONObject();
         }
     }
@@ -127,7 +127,7 @@ public class Request {
         try{
             Thread.sleep(new Random().nextInt(4)*1000);
         } catch (Exception e){
-            log.warn("等待过程中出错",e);
+            log.warn("等待過程中出錯",e);
         }
     }
 }

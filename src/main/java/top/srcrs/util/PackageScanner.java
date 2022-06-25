@@ -34,7 +34,7 @@ public abstract class PackageScanner {
                 scannerDirectory(root, packageName);
             }
         } catch (Exception e) {
-            log.error("💔扫包错误 : ", e);
+            log.error("💔掃包錯誤 : ", e);
         }
     }
 

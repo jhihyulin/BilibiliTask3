@@ -17,15 +17,15 @@ public class MangaTask implements Task {
     @Override
     public void run(){
         if(!config.isManga()){
-            log.info("【漫画签到】: 自定义配置不执行漫画签到任务✔");
+            log.info("【漫畫簽到】: 自定義設定不執行漫畫簽到任務✔");
             return ;
         }
         try{
             JSONObject jsonObject = mangaClockIn(config.getPlatform());
-            log.info("【漫画签到设备信息】: {}", config.getPlatform());
-            log.info("【漫画签到】: {}","0".equals(jsonObject.getString("code"))?"成功✔":"今天已经签过了❌");
+            log.info("【漫畫簽到設備訊息】: {}", config.getPlatform());
+            log.info("【漫畫簽到】: {}","0".equals(jsonObject.getString("code"))?"成功✔":"今天已經簽到過了❌");
         } catch (Exception e){
-            log.error("💔漫画签到错误 : ", e);
+            log.error("💔漫畫簽到錯誤 : ", e);
         }
     }
 

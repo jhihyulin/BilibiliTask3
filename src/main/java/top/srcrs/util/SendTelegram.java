@@ -36,7 +36,7 @@ public class SendTelegram {
         String desp = ReadLog.getMarkDownString("logs/logback.log");
         JSONObject bodyJson = new JSONObject();
         bodyJson.put("chat_id", telegramChatID);
-        bodyJson.put("text", "BilibiliTask运行结果:\n" + desp);
+        bodyJson.put("text", "BilibiliTask運行結果:\n" + desp);
         HttpUriRequest httpPost = RequestBuilder.post()
                 .addHeader("Content-Type", "application/json;charset=utf-8")
                 .setUri("https://api.telegram.org/bot"+telegramBotToken+"/sendMessage")
@@ -49,11 +49,11 @@ public class SendTelegram {
             if(resp.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
                 log.info("【Telegram推送】: 正常✔");
             } else{
-                log.info("【Telegram推送】: 失败, 原因为: {}❌", respContent);
+                log.info("【Telegram推推送】: 失敗, 原因為: {}❌", respContent);
             }
             System.out.println(respContent);
         } catch (Exception e){
-            log.error("💔Telegram通知错误 : ", e);
+            log.error("💔Telegram通知錯誤 : ", e);
         }
     }
 }

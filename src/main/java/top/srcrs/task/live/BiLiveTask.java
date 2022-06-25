@@ -25,18 +25,18 @@ public class BiLiveTask implements Task {
             String key = "code";
             /* 获取json对象的状态码code */
             if(SUCCESS.equals(json.getString(key))){
-                msg = "获得" + json.getJSONObject("data").getString("text") + " ,"
+                msg = "獲得" + json.getJSONObject("data").getString("text") + " ,"
                         + json.getJSONObject("data").getString("specialText") + "✔";
             } else{
                 msg = json.getString("message") + "❌";
             }
-            log.info("【直播签到】: {}",msg);
+            log.info("【直播簽到】: {}",msg);
             /* 直播签到后等待 3-5 秒
             ** 为防止礼物未到到账，而无法送出
             */
             Thread.sleep(new Random().nextInt(2000)+3000);
         } catch (Exception e){
-            log.error("💔直播签到错误 : ", e);
+            log.error("💔直播簽到錯誤 : ", e);
         }
     }
 

@@ -31,7 +31,7 @@ public class ReadLog {
                 str.append(br.readLine()).append(suffix);
             }
         } catch (Exception e){
-            log.error("💔读日志文件时出错 : ", e);
+            log.error("💔讀日誌文件時出錯 : ", e);
         }
         return str.toString();
     }

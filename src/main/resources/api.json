@@ -6,75 +6,75 @@
         "method": "GET",
         "verify": false,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
-        "comment": "视频简易信息"
+        "comment": "影片簡易訊息"
       },
       "info_detail": {
         "url": "https://api.bilibili.com/x/web-interface/view",
         "method": "GET",
         "verify": false,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
-        "comment": "视频详细信息"
+        "comment": "影片詳細訊息"
       },
       "danmaku": {
         "url": "https://api.bilibili.com/x/v1/dm/list.so",
         "method": "GET",
         "verify": false,
         "params": {
-          "oid": "video_info中的cid，即分P的编号"
+          "oid": "video_info中的cid，即分P的編號"
         },
-        "comment": "弹幕列表"
+        "comment": "彈幕列表"
       },
       "history_danmaku": {
         "url": "https://api.bilibili.com/x/v2/dm/history",
         "method": "GET",
         "verify": false,
         "params": {
-          "oid": "分P的编号",
+          "oid": "分P的編號",
           "type": "1",
           "date": "日期 (yyyy-mm-dd)"
         },
-        "comment": "历史弹幕列表"
+        "comment": "歷史彈幕列表"
       },
       "history_danmaku_index": {
         "url": "https://api.bilibili.com/x/v2/dm/history/index",
         "method": "GET",
         "verify": true,
         "params": {
-          "oid": "分P的编号",
+          "oid": "分P的編號",
           "type": "1",
           "month": "年月 (yyyy-mm)"
         },
-        "comment": "存在历史弹幕的日期"
+        "comment": "存在歷史彈幕的日期"
       },
       "tags": {
         "url": "https://api.bilibili.com/x/tag/archive/tags",
         "method": "GET",
         "verify": true,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
-        "comment": "视频标签信息"
+        "comment": "影片標籤訊息"
       },
       "charge": {
         "url": "https://api.bilibili.com/x/web-interface/elec/show",
         "method": "GET",
         "verify": false,
         "params": {
-          "aid": "av号",
-          "mid": "用户UID"
+          "aid": "av號",
+          "mid": "用戶UID"
         },
-        "comment": "视频充电信息"
+        "comment": "影片充電訊息"
       },
       "pages": {
         "url": "https://api.bilibili.com/x/player/pagelist",
         "method": "GET",
         "verify": false,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
         "comment": "分P列表"
       },
@@ -83,47 +83,47 @@
         "method": "GET",
         "verify": false,
         "params": {
-          "avid": "av号",
-          "cid": "分P编号",
-          "qn": "视频质量编号，最高120",
+          "avid": "av號",
+          "cid": "分P編號",
+          "qn": "影片品質編號，最高120",
           "otype": "json",
           "fnval": 16
         },
-        "comment": "视频下载的信息，下载链接需要提供headers伪装浏览器请求（Referer和User-Agent）"
+        "comment": "影片下載的訊息，下載連結需要提供headers偽裝瀏覽器請求（Referer和User-Agent）"
       },
       "related": {
         "url": "https://api.bilibili.com/x/web-interface/archive/related",
         "method": "GET",
         "verify": false,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
-        "comment": "获取关联视频"
+        "comment": "獲取關聯影片"
       },
       "is_liked": {
         "url": "https://api.bilibili.com/x/web-interface/archive/has/like",
         "method": "GET",
         "verify": true,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
-        "comment": "是否已点赞"
+        "comment": "是否已按讚"
       },
       "is_coins": {
         "url": "https://api.bilibili.com/x/web-interface/archive/coins",
         "method": "GET",
         "verify": true,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
-        "comment": "是否已投币 "
+        "comment": "是否已投幣 "
       },
       "is_favoured": {
         "url": "https://api.bilibili.com/x/v2/fav/video/favoured",
         "method": "GET",
         "verify": true,
         "params": {
-          "aid": "av号"
+          "aid": "av號"
         },
         "comment": "是否已收藏"
       },
@@ -132,11 +132,11 @@
         "method": "GET",
         "verify": true,
         "params": {
-          "rid": "av号",
+          "rid": "av號",
           "up_mid": "up的uid",
           "type": 2
         },
-        "comment": "获取收藏夹列表信息，用于收藏操作"
+        "comment": "獲取收藏夾列表訊息，用於收藏操作"
       }
     },
     "operate": {
@@ -145,21 +145,21 @@
         "method": "POST",
         "verify": true,
         "data": {
-          "aid": "av号",
-          "like": "1是点赞，2是取消点赞"
+          "aid": "av號",
+          "like": "1是按讚，2是取消按讚"
         },
-        "comment": "给视频点赞/取消点赞 "
+        "comment": "給影片按讚/取消按讚 "
       },
       "coin": {
         "url": "https://api.bilibili.com/x/web-interface/coin/add",
         "method": "POST",
         "verify": true,
         "data": {
-          "aid": "av号",
-          "multiply": "几个币",
-          "select_like": "同时点赞（1是0否）"
+          "aid": "av號",
+          "multiply": "幾個幣",
+          "select_like": "同時按讚（1是0否）"
         },
-        "comment": "给视频投币"
+        "comment": "給影片投幣"
       },
       "send_danmaku": {
         "url": "https://api.bilibili.com/x/v2/dm/post",
@@ -167,44 +167,44 @@
         "verify": true,
         "data": {
           "type": "1",
-          "oid": "分P编号",
-          "msg": "弹幕内容",
+          "oid": "分P編號",
+          "msg": "彈幕內容",
           "bvid": "bvid",
-          "progress": "发送时间（毫秒）",
-          "color": "颜色（十六进制转十进制）",
-          "fontsize": "字体大小（小18普通25大36）",
-          "pool": "字幕弹幕（1是0否）",
-          "mode": "模式（滚动1顶部5底部4）",
+          "progress": "發送時間（毫秒）",
+          "color": "顏色（十六進制轉十進制）",
+          "fontsize": "字體大小（小18普通25大36）",
+          "pool": "字幕彈幕（1是0否）",
+          "mode": "模式（滾動1頂部5底部4）",
           "plat": "1"
         },
-        "comment": "发送弹幕"
+        "comment": "發送彈幕"
       },
       "add_tag": {
         "url": "https://api.bilibili.com/x/tag/archive/add",
         "method": "POST",
         "verify": true,
         "data": {
-          "aid": "av号",
-          "tag_name": "标签名"
+          "aid": "av號",
+          "tag_name": "標籤名"
         },
-        "comment": "添加标签"
+        "comment": "添加標籤"
       },
       "del_tag": {
         "url": "https://api.bilibili.com/x/tag/archive/del",
         "method": "POST",
         "verify": true,
         "data": {
-          "aid": "av号",
-          "tag_id": "标签id"
+          "aid": "av號",
+          "tag_id": "標籤id"
         },
-        "comment": "删除标签"
+        "comment": "刪除標籤"
       },
       "like_tag": {
         "url": "https://api.bilibili.com/x/tag/archive/like2",
         "method": "POST",
         "verify": true,
         "data": {
-          "aid": "av号",
+          "aid": "av號",
           "tag_id": "标签id"
         },
         "comment": "切换标签点赞状态"
@@ -214,7 +214,7 @@
         "method": "POST",
         "verify": true,
         "data": {
-          "aid": "av号",
+          "aid": "av號",
           "tag_id": "标签id"
         },
         "comment": "切换标签踩状态"
@@ -991,7 +991,7 @@
         "method": "POST",
         "verify": true,
         "data": {
-          "oid": "av号",
+          "oid": "av號",
           "type": "1",
           "action": "1点赞0取消点赞",
           "rpid": "评论编号"
@@ -1003,7 +1003,7 @@
         "method": "POST",
         "verify": true,
         "data": {
-          "oid": "av号",
+          "oid": "av號",
           "type": "1",
           "action": "1踩0取消踩",
           "rpid": "评论编号"
@@ -1015,7 +1015,7 @@
         "method": "POST",
         "verify": true,
         "data": {
-          "oid": "av号",
+          "oid": "av號",
           "type": "1",
           "action": "1置顶0取消置顶",
           "rpid": "评论编号"
@@ -1027,7 +1027,7 @@
         "method": "POST",
         "verify": true,
         "data": {
-          "oid": "av号",
+          "oid": "av號",
           "type": "1",
           "rpid": "评论编号"
         },

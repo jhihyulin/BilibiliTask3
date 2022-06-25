@@ -33,7 +33,7 @@ public class CollectVipGift implements Task {
             int day = cal.get(Calendar.DATE);
             String vipType = queryVipStatusType();
             if(!(YEAR_VIP.equals(vipType))){
-                log.info("【年度大会员领取福利】: " + "不是年度大会员,无法领取❌");
+                log.info("【年度大會員領取福利】: " + "不是年度大會員,無法領取❌");
                 return ;
             }
             /* 是年度大会员的朋友可以帮忙测一测
@@ -41,7 +41,7 @@ public class CollectVipGift implements Task {
                我这现在只能给写死，每个月1号领取
             */
             if(day!=1){
-                log.info("【年度大会员领取福利】: " + "今日不是月初(1号)❌");
+                log.info("【年度大會員領取福利】: " + "今日不是月初(1號)❌");
                 return;
             }
             /* 每个月1号，年度大会员领取权益 */
@@ -49,7 +49,7 @@ public class CollectVipGift implements Task {
             vipPrivilege(2);
 
         } catch (Exception e){
-            log.error("💔领取年度大会员礼包错误 : ", e);
+            log.error("💔領取年度大會員禮包錯誤 : ", e);
         }
     }
 
@@ -67,13 +67,13 @@ public class CollectVipGift implements Task {
         Integer code = jsonObject.getInteger("code");
         if (0 == code) {
             if (type == 1) {
-                log.info("【领取年度大会员每月赠送的B币券】: 成功✔");
+                log.info("【領取年度大會員每月贈送的B幣券】: 成功✔");
             } else if (type == 2) {
-                log.info("【领取大会员福利/权益】: 成功✔");
+                log.info("【領取大會員福利/權益】: 成功✔");
             }
 
         } else {
-            log.warn("【领取年度大会员每月赠送的B币券/大会员福利】: 失败, 原因: {}❌", jsonObject.getString("message"));
+            log.warn("【領取年度大會員每月贈送的B幣券/大會員福利】: 失敗, 原因: {}❌", jsonObject.getString("message"));
         }
     }
 

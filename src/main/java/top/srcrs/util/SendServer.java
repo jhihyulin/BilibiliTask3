@@ -35,7 +35,7 @@ public class SendServer {
     public static void send(String sckey) {
         /* 将要推送的数据 */
         JSONObject pJson = new JSONObject();
-        pJson.put("text", "BilibiliTask运行结果");
+        pJson.put("text", "BilibiliTask運行結果");
         pJson.put("desp", ReadLog.getMarkDownString("logs/logback.log"));
 
         HttpUriRequest httpPost = RequestBuilder.post()
@@ -49,12 +49,12 @@ public class SendServer {
             HttpEntity entity = resp.getEntity();
             String respContent = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             if (resp.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                log.info("【server酱推送】: 正常✔");
+                log.info("【server醬推送】: 正常✔");
             } else {
-                log.info("【server酱推送】: 失败, 原因为: {}❌", respContent);
+                log.info("【server醬推送】: 失敗, 原因為: {}❌", respContent);
             }
         } catch (Exception e) {
-            log.error("💔server酱发送错误 : ", e);
+            log.error("💔server醬發送錯誤 : ", e);
         }
     }
 

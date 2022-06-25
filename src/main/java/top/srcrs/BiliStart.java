@@ -30,28 +30,28 @@ public class BiliStart {
     private static final Config CONFIG = Config.getInstance();
     public static void main(String ...args) {
         if(checkEnv()){
-            log.error("💔请在Github Secrets中添加你的Cookie信息");
+            log.error("💔請在Github Secrets中添加你的Cookie訊息");
             return;
         }
         /* 读取yml文件配置信息 */
         ReadConfig.transformation("/config.yml");
         /* 如果用户账户有效 */
         if(check()){
-            log.info("【用户名】: {}",StringUtil.hideString(USER_DATA.getUname(),1,1,'*'));
-            log.info("【硬币】: {}", USER_DATA.getMoney());
-            log.info("【经验】: {}", USER_DATA.getCurrentExp());
+            log.info("【用戶名】: {}",StringUtil.hideString(USER_DATA.getUname(),1,1,'*'));
+            log.info("【硬幣】: {}", USER_DATA.getMoney());
+            log.info("【經驗】: {}", USER_DATA.getCurrentExp());
             /* 动态执行task包下的所有java代码 */
             scanTask();
             /* 当用户等级为Lv6时，升级到下一级 next_exp 值为 -- 代表无穷大 */
             String maxLevel = "6";
             if(maxLevel.equals(USER_DATA.getCurrentLevel())){
-                log.info("【升级预计】: 当前等级为: Lv{} ,已经是最高等级", maxLevel);
-                log.info("【温馨提示】: 可在配置文件中关闭每日投币操作");
+                log.info("【升級預計】: 目前等級為: Lv{} ,已經是最高等級", maxLevel);
+                log.info("【溫馨提醒】: 可在配置文件中關閉每日投幣操作");
             } else{
-                log.info("【升级预计】: 当前等级为: Lv{} ,预计升级到下一级还需要: {} 天",
+                log.info("【升級預計】: 目前導極為: Lv{} ,預計升級到下一級還要: {} 天",
                         USER_DATA.getCurrentLevel(), getNextLevel());
             }
-            log.info("本次任务运行完毕。");
+            log.info("本次任務運行完畢。");
 
         }
 
@@ -96,7 +96,7 @@ public class BiliStart {
                         clazzList.add(clazz);
                     }
                 } catch (Exception e){
-                    log.error("💔反射获取对象错误 : ", e);
+                    log.error("💔反射獲取對象錯誤 : ", e);
                 }
             }
         };
@@ -109,7 +109,7 @@ public class BiliStart {
                 Method method = object.getClass().getMethod("run");
                 method.invoke(object);
             } catch (Exception e){
-                log.error("💔反射获取对象错误 : ", e);
+                log.error("💔反射獲取對象錯誤 : ", e);
             }
         });
     }
@@ -158,7 +158,7 @@ public class BiliStart {
             return true;
         }
         if(NOT_LOGGED_IN.equals(code)){
-            log.info("💔账户已失效，请在Secrets重新绑定你的信息");
+            log.info("💔帳號已失效，請在Secrets重新綁定你的帳號");
             return false;
         }
         return false;

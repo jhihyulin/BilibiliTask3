@@ -35,7 +35,7 @@ public class SendServerChan {
     public static void send(String sendkey) {
         /* 将要推送的数据 */
         JSONObject pJson = new JSONObject();
-        pJson.put("title", "BilibiliTask 运行结果");
+        pJson.put("title", "BilibiliTask 運行結果");
         pJson.put("desp", ReadLog.getMarkDownString("logs/logback.log"));
 
         HttpUriRequest httpPost = RequestBuilder.post()
@@ -49,12 +49,12 @@ public class SendServerChan {
             HttpEntity entity = resp.getEntity();
             String respContent = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             if (resp.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                log.info("【Server酱推送】: 正常✔");
+                log.info("【Server醬推送】: 正常✔");
             } else {
-                log.info("【Server酱推送】: 失败, 原因为: {}❌", respContent);
+                log.info("【Server醬推送】: 失敗, 原因為: {}❌", respContent);
             }
         } catch (Exception e) {
-            log.error("💔Server酱发送错误 : ", e);
+            log.error("💔Server醬發送錯誤 : ", e);
         }
     }
 

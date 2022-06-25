@@ -42,13 +42,13 @@ public class ThrowCoinTask implements Task {
             num3 = Math.max(num3,0);
             /* 实际需要投 num个硬币 */
             int num = Math.min(num3,Math.min(num1,num2));
-            log.info("【投币计算】: 当前硬币数: " + num2
-                    + " ,自定义投币数: " + num3
-                    + " ,今日已投币: " + reward/10
-                    + " ,还需投币: "+num1
-                    + " ,实际投币: "+num);
+            log.info("【投幣計算】: 目前投幣數: " + num2
+                    + " ,自定義投幣數: " + num3
+                    + " ,今日已投幣: " + reward/10
+                    + " ,還需投幣: "+num1
+                    + " ,實際投幣: "+num);
             if(num == 0){
-                log.info("【投币】: 当前无需执行投币操作❌");
+                log.info("【投幣】: 目前無需執行投幣操作❌");
             }
             /* 获取视频信息，优先级为:
                      自定义配置 up 主发布的最新视频(前 30 条) >
@@ -58,24 +58,24 @@ public class ThrowCoinTask implements Task {
             List<String> videoAid = new ArrayList<>();
             /* 获取自定义配置中 up 主投稿的30条最新视频 */
             if(config.getUpList() == null && num > 0){
-                log.info("【优先投币up】: 未配置优先投币up主");
+                log.info("【优優先投幣up】: 未設定優先投幣up主");
             } else{
                 if(num - videoAid.size() > 0){
                     for(String up : config.getUpList()){
                         videoAid.addAll(spaceSearch(up,num - videoAid.size()));
-                        log.info("【优先投币up {} 】: 成功获取到: {} 个视频", up, videoAid.size());
+                        log.info("【優先投幣up {} 】: 成功獲取到: {} 個影片", up, videoAid.size());
                     }
                 }
             }
             /* 获取当前用户最新的20条动态投稿视频列表 */
             if(num - videoAid.size() > 0){
                 videoAid.addAll(dynamicNew(num - videoAid.size()));
-                log.info("【用户动态列表】: 成功获取到: {} 个视频", videoAid.size());
+                log.info("【用戶動態列表】: 成功獲取到: {} 個影片", videoAid.size());
             }
             /* 获取分区视频 */
             if(num - videoAid.size() > 0){
                 videoAid.addAll(getRegions("6", "1",num - videoAid.size()));
-                log.info("【分区热门视频】: 成功获取到: {} 个视频", videoAid.size());
+                log.info("【分區熱門影片】: 成功獲取到: {} 個影片", videoAid.size());
             }
             /* 给每个视频投 1 个币 */
             /* 在配置文件中读取是否为投币视频点赞 */
@@ -86,16 +86,16 @@ public class ThrowCoinTask implements Task {
                 /* 输出的日志消息 */
                 String msg ;
                 if ("0".equals(json.getString("code"))) {
-                    msg = "硬币-1✔";
+                    msg = "硬幣-1✔";
                 } else {
                     msg = json.getString("message") + "❌";
                 }
-                log.info("【投币】: 给视频 - av{} - {}", aid, msg);
+                log.info("【投幣】: 給影片 - av{} - {}", aid, msg);
                 /* 投完币等待1-2秒 */
                 Thread.sleep(new Random().nextInt(1000)+1000);
             }
         } catch (Exception e) {
-            log.info("💔投币异常 : ", e);
+            log.info("💔投幣異常 : ", e);
         }
     }
 

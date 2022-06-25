@@ -35,7 +35,7 @@ public class SendDingTalk {
         /* 将要推送的数据 */
         String desp = ReadLog.getMarkDownString("logs/logback.log");
         JSONObject markdownJson = new JSONObject();
-        markdownJson.put("title", "BilibiliTask运行结果");
+        markdownJson.put("title", "BilibiliTask運行結果");
         markdownJson.put("text", desp);
         JSONObject bodyJson = new JSONObject();
         bodyJson.put("msgtype", "markdown");
@@ -50,13 +50,13 @@ public class SendDingTalk {
             HttpEntity entity = resp.getEntity();
             String respContent = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             if(resp.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-                log.info("【钉钉推送】: 正常✔");
+                log.info("【釘釘推送】: 正常✔");
             } else{
-                log.info("【钉钉推送】: 失败, 原因为: {}❌", respContent);
+                log.info("【釘釘推送】: 失敗, 原因為: {}❌", respContent);
             }
             System.out.println(respContent);
         } catch (Exception e){
-            log.error("💔钉钉通知错误 : ", e);
+            log.error("💔釘釘通知錯誤 : ", e);
         }
     }
 }

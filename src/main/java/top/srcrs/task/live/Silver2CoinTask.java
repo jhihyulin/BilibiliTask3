@@ -21,21 +21,21 @@ public class Silver2CoinTask implements Task {
     public void run(){
         /* 获得银瓜子的数量 */
         Integer silver = getSilver();
-        log.info("【银瓜子】: {}",silver);
+        log.info("【銀瓜子】: {}",silver);
         if(config.isS2c()){
             try{
                 /* 如果银瓜子数量小于700没有必要再进行兑换 */
                 int minSilver = 700;
                 if(silver < minSilver){
-                    log.info("【银瓜子兑换硬币】: {}","银瓜子余额不足❌");
+                    log.info("【銀瓜子兌換硬幣】: {}","銀瓜子餘額不足❌");
                 } else{
-                    log.info("【银瓜子兑换硬币】: {}",silver2coin().getString("msg") + "✔");
+                    log.info("【銀瓜子兌換硬幣】: {}",silver2coin().getString("msg") + "✔");
                 }
             } catch (Exception e){
-                log.error("💔银瓜子兑换硬币错误 : ", e);
+                log.error("💔銀瓜子兌換硬幣錯誤 : ", e);
             }
         } else{
-            log.info("【银瓜子兑换硬币】: " + "自定义配置不将银瓜子兑换硬币✔");
+            log.info("【銀瓜子兌換硬幣】: " + "自定義設定不將銀瓜子兌換硬幣✔");
         }
     }
 

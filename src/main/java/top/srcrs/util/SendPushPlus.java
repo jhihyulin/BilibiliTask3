@@ -36,7 +36,7 @@ public class SendPushPlus {
         /* 将要推送的数据 */
         JSONObject pJson = new JSONObject();
         pJson.put("token", token);
-        pJson.put("title", "BilibiliTask运行结果");
+        pJson.put("title", "BilibiliTask運行結果");
         pJson.put("content", ReadLog.getHTMLString("logs/logback.log"));
         /*
          * html	支持html文本。为空默认使用html模板(默认)
@@ -56,10 +56,10 @@ public class SendPushPlus {
             if (resp.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 log.info("【PUSH+推送】: 正常✔");
             } else {
-                log.info("【PUSH+推送】: 失败, 原因为: {}❌", respContent);
+                log.info("【PUSH+推送】: 失敗, 原因為: {}❌", respContent);
             }
         } catch (Exception e) {
-            log.error("💔PUSH+发送错误 : ", e);
+            log.error("💔PUSH+發送錯誤 : ", e);
         }
     }
 

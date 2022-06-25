@@ -37,30 +37,30 @@ public class DailyTask implements Task {
             */
             if (isWatch && isShare) {
 
-                log.info("【模拟观看视频】: " + "今日已经观看过视频❌");
-                log.info("【分享视频】: " + "今日已经分享过视频❌");
+                log.info("【模擬觀看影片】: " + "今日已經觀看過影片❌");
+                log.info("【分享影片】: " + "今日已經分享過影片❌");
                 return;
             }
             /* 获取B站推荐视频 */
             JSONArray regions = getRegions("6", "1");
             if (isWatch) {
-                log.info("【模拟观看视频】: " + "今日已经观看过视频❌");
+                log.info("【模擬觀看影片】: " + "今日已經觀看過影片❌");
             } else {
                 String aid = regions.getJSONObject(5).getString("aid");
                 /* 随机观看时间 */
                 int time = new Random().nextInt(duration(aid) - 2) + 2;
                 String cid = regions.getJSONObject(5).getString("cid");
                 JSONObject report = report(aid, cid, "" + time);
-                log.info("【模拟观看视频】: {}", "0".equals(report.getString("code")) ? "成功✔" : "失败❌");
+                log.info("【模擬觀看影片】: {}", "0".equals(report.getString("code")) ? "成功✔" : "失敗❌");
             }
             if (isShare) {
-                log.info("【分享视频】: " + "今日已经分享过视频❌");
+                log.info("【分享影片】: " + "今日已經分享過影片❌");
             } else {
                 JSONObject share = share(regions.getJSONObject(5).getString("aid"));
-                log.info("【分享视频】: {}", "0".equals(share.getString("code")) ? "成功✔" : "失败❌");
+                log.info("【分享影片】: {}", "0".equals(share.getString("code")) ? "成功✔" : "失敗❌");
             }
         } catch (Exception e) {
-            log.error("💔每日任务异常 : ", e);
+            log.error("💔每日任務異常 : ", e);
         }
     }
 
