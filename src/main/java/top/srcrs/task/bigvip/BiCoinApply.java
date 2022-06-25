@@ -93,7 +93,7 @@ public class BiCoinApply implements Task {
                 chargeComments(orderNo);
             } else {
                 log.warn("【用B幣券給自己充電】: " + "失敗, 原因為: {}❌", jsonObject);
-            }失敗
+            }
         } else {
             log.warn("【用B幣券給自己充電】: " + "失敗, 原因為: {}❌", jsonObject);
         }
